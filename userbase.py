@@ -5,10 +5,9 @@ import base64
 import webbrowser
 import pyperclip
 
-
 def parse_potential_engineers(results_filename):
  """Goes through potential engineers one by one"""
- 
+
      json_data = open(results_filename)
      results = json.load(json_data)
      json_data.close()
@@ -44,7 +43,7 @@ def call_sourcingio(email):
 	   	else:
 	  		raise err
 
-	return {'headline': response['headline'], \
+	return {'headline': response['headline'], 
 			'linkedin': 'https://www.linkedin.com/{0}'.format(response['linkedin']), \
 			'github': 'https://github.com/{0}'.format(response['github']), \
 			'twitter': 'https://twitter.com/{0}'.format(response['twitter']), \
