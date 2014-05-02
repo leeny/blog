@@ -44,10 +44,10 @@ def call_sourcingio(email):
 	  		raise err
 
 	return {'headline': response['headline'], 
-			'linkedin': 'https://www.linkedin.com/{0}'.format(response['linkedin']), \
-			'github': 'https://github.com/{0}'.format(response['github']), \
-			'twitter': 'https://twitter.com/{0}'.format(response['twitter']), \
-			'url': response['url'] }
+		'linkedin': 'https://www.linkedin.com/{0}'.format(response['linkedin']), \
+		'github': 'https://github.com/{0}'.format(response['github']), \
+		'twitter': 'https://twitter.com/{0}'.format(response['twitter']), \
+		'url': response['url'] }
 
 def call_github(email):
 	"""Calls GitHub with an email
