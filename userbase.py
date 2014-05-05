@@ -41,6 +41,7 @@ def call_sourcingio(email):
 	   		return None
 	   	else:
 	  		raise err
+
 	return {
 		'headline': response['headline'], \
 		'linkedin': 'https://www.linkedin.com/{0}'.format(response['linkedin']), \
@@ -71,3 +72,4 @@ def call_github(email):
 		return response['items'][0]['html_url'] 
 	else:
 		return None	
+
