@@ -6,22 +6,22 @@ import webbrowser
 import pyperclip
 
 def parse_potential_engineers(results_filename):
- """Goes through potential engineers one by one"""
+	"""Goes through potential engineers one by one"""
 
-     json_data = open(results_filename)
-     results = json.load(json_data)
-     json_data.close()
+	json_data = open(results_filename)
+	results = json.load(json_data)
+	json_data.close()
 
-     for email in results:
-          if results[email] == None:
-               continue
+	for email in results:
+ 		if results[email] == None:
+ 			continue
 
-          print email
-          print results[email]
+ 		print email
+ 		print results[email]
 
-          webbrowser.open(results[email]['github']) # open GitHub page in a new browser window
-          pyperclip.copy(email) # copy email address to clipboard
-          sys.stdin.readline()
+ 		webbrowser.open(results[email]['github']) # open GitHub page in a new browser window
+ 		pyperclip.copy(email) # copy email address to clipboard
+ 		sys.stdin.readline()
 
 def call_sourcingio(email):
 	"""Calls Sourcing.io with an email
@@ -42,12 +42,13 @@ def call_sourcingio(email):
 	   		return None
 	   	else:
 	  		raise err
-
-	return {'headline': response['headline'], 
-			'linkedin': 'https://www.linkedin.com/{0}'.format(response['linkedin']), \
-			'github': 'https://github.com/{0}'.format(response['github']), \
-			'twitter': 'https://twitter.com/{0}'.format(response['twitter']), \
-			'url': response['url'] }
+	return {
+		'headline': response['headline'], \
+		'linkedin': 'https://www.linkedin.com/{0}'.format(response['linkedin']), \
+		'github': 'https://github.com/{0}'.format(response['github']), \
+		'twitter': 'https://twitter.com/{0}'.format(response['twitter']), \
+		'url': response['url'] 
+		}
 
 def call_github(email):
 	"""Calls GitHub with an email
@@ -59,7 +60,6 @@ def call_github(email):
 	# TODO insert your credentials here or read them from a config file or whatever
 	# First param is username, 2nd param is passwd
 	# You can also do this without credentials, but then you'll be limited to 5 requests per minute
-
 	auth_info = '{0}:{1}'.format('','')
 
 	basic = base64.b64encode(auth_info)
@@ -70,5 +70,5 @@ def call_github(email):
 
 	if response and response['total_count'] == 1:
 		return response['items'][0]['html_url'] 
-	else 
+	else:
 		return None	
