@@ -7,7 +7,6 @@ import pyperclip
 
 def parse_potential_engineers(results_filename):
 	"""Goes through potential engineers one by one"""
-
 	json_data = open(results_filename)
 	results = json.load(json_data)
 	json_data.close()
