@@ -59,7 +59,7 @@ def call_github(email):
 
 	# TODO insert your credentials here or read them from a config file or whatever
 	# First param is username, 2nd param is passwd
-	# You can also do this without credentials, but then you'll be limited to 5 requests per minute
+	# Without credentials, you'll be limited to 5 requests per minute
 	auth_info = '{0}:{1}'.format('','')
 
 	basic = base64.b64encode(auth_info)
